@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  sql:
+    image: dat215.1x:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment: 
+      ACCEPT_EULA: Y
+      SA_PASSWORD: BigBlueG2018
+    container_name: sql
+    volumes:
+      - sql_data:/var/opt/mssql
+    ports:
+    - "1433:1433"
+
+volumes:
+  sql_data:
